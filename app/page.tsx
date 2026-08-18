@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CONSENT_TEXT, DATENSCHUTZ, type DatenschutzSection } from "@/consent-content";
+import { BASE_PATH } from "@/base-path";
 
 /**
  * Renders one numbered clause of the Art. 13 DSGVO privacy notice
@@ -54,7 +55,7 @@ export default function ConsentForm() {
         {/* Header */}
         <div style={{ marginBottom: "1.5rem", display: "flex" }}>
           <div style={{ background: "#ffffff", borderRadius: "var(--border-radius-md)", padding: "10px 16px", display: "flex", alignItems: "center" }}>
-            <Image src="/vetter-consulting-logo-quer.png" alt="Vetter Consulting" width={1274} height={564} style={{ height: "56px", width: "auto" }} priority />
+            <Image src={`${BASE_PATH}/vetter-consulting-logo-quer.png`} alt="Vetter Consulting" width={1274} height={564} style={{ height: "56px", width: "auto" }} priority />
           </div>
         </div>
 
