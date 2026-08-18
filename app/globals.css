@@ -1,26 +1,29 @@
 @import "tailwindcss";
 
+/*
+ * Design tokens for the page. This is a static informational page (see
+ * app/page.tsx) — no form controls, so there are intentionally no
+ * input/button/focus-state styles here. Keep it that way unless the page
+ * grows interactive elements again.
+ */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 
-  /* Vetter Consulting corporate colors */
+  /* Vetter Consulting corporate colors (brand-primary is the secondary/sage
+     accent from the brand guidelines; not currently applied anywhere in the
+     UI, kept here as the reserved token if it's needed later). */
   --brand-primary: #a1b5ac;
   --brand-secondary: #036451;
-  --brand-secondary-hover: #024c3d;
 
   --color-background-primary: #ffffff;
-  --color-background-secondary: #f6f7f6;
   --color-background-tertiary: #f4f6f5;
-  --color-background-success: #e1efe9;
 
   --color-text-primary: #2b332f;
   --color-text-secondary: #63706a;
   --color-text-tertiary: #97a19c;
-  --color-text-danger: #d1332f;
 
   --color-border-tertiary: #e5e9e6;
-  --color-border-danger: #d1332f;
 
   --border-radius-md: 8px;
   --border-radius-lg: 14px;
@@ -33,6 +36,9 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Same tokens, retuned for prefers-color-scheme: dark. brand-secondary is
+   lightened here (#036451 is too dark to read against a near-black
+   background) — brand-primary stays as-is since it's already light. */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -40,20 +46,15 @@
 
     --brand-primary: #a1b5ac;
     --brand-secondary: #1a9e7e;
-    --brand-secondary-hover: #23b48f;
 
     --color-background-primary: #18181b;
-    --color-background-secondary: #27272a;
     --color-background-tertiary: #0f1012;
-    --color-background-success: #123a2c;
 
     --color-text-primary: #ededed;
     --color-text-secondary: #a1a1aa;
     --color-text-tertiary: #71717a;
-    --color-text-danger: #f27a77;
 
     --color-border-tertiary: #3f3f46;
-    --color-border-danger: #f27a77;
   }
 }
 
@@ -61,29 +62,4 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-input,
-button {
-  font-family: inherit;
-}
-
-input[type="text"],
-input[type="email"] {
-  padding: 0.55rem 0.75rem;
-  font-size: 0.9rem;
-  color: var(--color-text-primary);
-  background: var(--color-background-primary);
-  border: 1px solid var(--color-border-tertiary);
-  border-radius: var(--border-radius-md);
-  outline: none;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus {
-  border-color: var(--brand-secondary);
-}
-
-input[type="checkbox"] {
-  accent-color: var(--brand-secondary);
 }

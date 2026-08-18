@@ -1,3 +1,10 @@
+// Legal copy for the consent notice page (app/page.tsx). This is the actual
+// text shown to site visitors, not sample/placeholder content — treat edits
+// here as legal-document edits (get sign-off from Vetter Consulting's
+// Datenschutzbeauftragter), not routine copywriting.
+
+// The top of the page: what's being processed and why. Rendered directly
+// above the Art. 13 accordion in app/page.tsx.
 export const CONSENT_TEXT = {
     title: "Einwilligungserklärung zur Aufzeichnung, Transkription und Protokollierung von Microsoft Teams-Besprechungen",
     intro: "Ich willige hiermit ein, dass Vetter Consulting im Rahmen von Microsoft-Teams-Besprechungen, an denen ich teilnehme, meine personenbezogenen Daten zum Zweck der Dokumentation, Nachbereitung und Protokollierung der Besprechung verarbeitet.",
@@ -22,6 +29,11 @@ export const CONSENT_TEXT = {
     restrictionNote: "Mir ist ferner bekannt, dass eine Teilnahme an entsprechend aufgezeichneten und transkribierten Besprechungen ohne Erteilung der Einwilligung gegebenenfalls nicht oder nur eingeschränkt möglich ist, soweit die Aufzeichnung und Protokollierung organisatorisch für die Durchführung der Besprechung vorgesehen ist.",
 };
 
+// One numbered clause of the Art. 13 DSGVO privacy notice, e.g.
+// { num: "1.", heading: "Verantwortlicher", body: "..." }. `body` is plain
+// text with "\n" for paragraph breaks; `items` renders as a bullet list
+// instead (see the Section component in app/page.tsx). A clause may use
+// either, both, or neither.
 export type DatenschutzSection = {
     num: string;
     heading: string;
@@ -29,6 +41,9 @@ export type DatenschutzSection = {
     items?: string[];
 };
 
+// The full Art. 13 DSGVO privacy notice, in display order, rendered inside
+// the collapsed accordion on the page. Renumber `num` on every entry if you
+// insert, remove, or reorder a clause.
 export const DATENSCHUTZ: DatenschutzSection[] = [
     {
         num: "1.",

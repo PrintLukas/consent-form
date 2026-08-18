@@ -1,6 +1,12 @@
 import Image from "next/image";
 import { CONSENT_TEXT, DATENSCHUTZ, type DatenschutzSection } from "@/consent-content";
 
+/**
+ * Renders one numbered clause of the Art. 13 DSGVO privacy notice
+ * (e.g. "1. Verantwortlicher"). `body` is plain text with `\n` for
+ * paragraph breaks (some clauses in DATENSCHUTZ use one, others use `items`
+ * for a bullet list — a clause may have either, both, or neither).
+ */
 function Section({ num, heading, body, items }: DatenschutzSection) {
   return (
     <div style={{ marginBottom: "1.25rem" }}>
@@ -30,6 +36,17 @@ function Section({ num, heading, body, items }: DatenschutzSection) {
   );
 }
 
+/**
+ * The whole app: a single static page presenting the Microsoft Teams /
+ * Happy Scribe recording notice and the full Art. 13 DSGVO privacy notice
+ * (collapsed in a <details> accordion by default).
+ *
+ * This is intentionally read-only — there is no form, no state, and no
+ * network request anywhere on the page. It does not collect, submit, or
+ * store any personal data, and does not record that a visitor gave
+ * consent; it only *displays* the notice text from consent-content.ts.
+ * That's why this is a plain server component (no "use client").
+ */
 export default function ConsentForm() {
   return (
     <div style={{ minHeight: "100vh", background: "var(--color-background-tertiary)", padding: "3rem 1rem" }}>

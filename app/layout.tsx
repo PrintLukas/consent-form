@@ -12,6 +12,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Browser tab title / meta description. Keep this in sync with
+// CONSENT_TEXT.title in consent-content.ts if the notice's subject changes.
 export const metadata: Metadata = {
   title: "Einwilligungserklärung | Vetter Consulting",
   description: "Einwilligungserklärung zur Aufzeichnung, Transkription und Protokollierung von Microsoft Teams-Besprechungen.",
